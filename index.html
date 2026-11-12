@@ -1,100 +1,15 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Notgre3Nz AI Assistant</title>
-  <style>
-    body {
-      background: #080e0b;
-      color: #e5fff0;
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-    header {
-      padding: 20px;
-      background: #10251a;
-      color: #50fa8b;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    main {
-      max-width: 750px;
-      margin: auto;
-      padding: 24px;
-    }
-    #chat {
-      min-height: 300px;
-      padding: 15px;
-    }
-    .message {
-      padding: 14px;
-      margin: 12px 0;
-      border-radius: 14px;
-      background: #193326;
-    }
-    .user {
-      background: #27583b;
-      margin-left: 20%;
-    }
-    .input-area {
-      display: flex;
-      gap: 10px;
-    }
-    input {
-      flex: 1;
-      min-width: 0;
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid #39704c;
-      background: #122319;
-      color: white;
-    }
-    button {
-      background: #50fa8b;
-      color: #07140c;
-      border: 0;
-      border-radius: 10px;
-      padding: 14px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notgre3Nz AI Assistant</title>
+<style>
+:root{color-scheme:dark;--bg:#212121;--side:#171717;--panel:#303030;--text:#f3f3f3;--muted:#a1a1a1;--line:#373737}*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}button,textarea{font:inherit}button{cursor:pointer}button:focus-visible,textarea:focus-visible{outline:2px solid #bcbcbc;outline-offset:3px}.app{display:flex;height:100dvh;overflow:hidden}.sidebar{width:260px;flex-shrink:0;background:var(--side);display:flex;flex-direction:column;padding:17px 12px;transition:width .25s ease,padding .25s ease;overflow:hidden}.sidebar.closed{width:0;padding:17px 0}.side-top{display:flex;align-items:center;justify-content:space-between;gap:8px;white-space:nowrap;padding:0 5px 24px}.brand{font-weight:700;letter-spacing:-.3px}.icon-btn{border:0;background:transparent;color:#c9c9c9;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;transition:background .18s,transform .18s}.icon-btn:hover{background:#393939;transform:translateY(-1px)}.sidebar .icon-btn:hover{background:#292929}.new-chat{width:100%;text-align:left;background:transparent;color:#ededed;border:0;border-radius:10px;padding:11px 12px;white-space:nowrap;transition:background .18s}.new-chat:hover,.history-item:hover{background:#292929}.side-label{color:#858585;font-size:12px;padding:22px 12px 8px}.history{overflow:auto;flex:1}.history-item{display:block;width:100%;text-align:left;background:transparent;border:0;color:#d5d5d5;border-radius:9px;padding:9px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.history-item.active{background:#2a2a2a}.side-foot{border-top:1px solid #303030;padding:13px 12px;color:#999;font-size:12px;white-space:nowrap}.main{flex:1;min-width:0;display:flex;flex-direction:column}.topbar{height:65px;display:flex;align-items:center;gap:12px;padding:0 22px}.topbar strong{font-size:16px;font-weight:600}.topbar .spacer{flex:1}.content{flex:1;min-height:0;overflow:auto;scroll-behavior:smooth}.inner{max-width:780px;margin:auto;min-height:100%;padding:24px 22px 12px}.welcome{min-height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;text-align:center;padding-bottom:45px}.welcome h1{font-size:30px;font-weight:600;letter-spacing:-.8px;margin:0}.welcome p{color:var(--muted);margin:-10px 0 4px}.suggestions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:470px;width:100%}.suggestion{border:1px solid #404040;border-radius:13px;padding:13px 15px;background:transparent;color:#d4d4d4;text-align:left;transition:background .18s,border-color .18s,transform .18s}.suggestion:hover{background:#2c2c2c;border-color:#626262;transform:translateY(-2px)}.message{max-width:88%;margin:20px 0;animation:rise .24s ease both;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{background:#303030;padding:12px 17px;border-radius:20px;margin-left:auto;width:fit-content}.message.assistant{margin-right:auto}.message .who{font-size:12px;color:#a4a4a4;margin-bottom:5px;font-weight:600}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.composer-wrap{padding:8px 20px 20px;background:linear-gradient(transparent,var(--bg) 20%)}.composer{max-width:780px;margin:auto;background:var(--panel);border:1px solid #3d3d3d;border-radius:23px;padding:12px 14px 10px;transition:border-color .2s,box-shadow .2s}.composer:focus-within{border-color:#666;box-shadow:0 0 0 1px #484848}.composer textarea{display:block;width:100%;resize:none;min-height:35px;max-height:150px;background:transparent;border:0;outline:none;color:var(--text);padding:3px 3px 9px;line-height:1.5}.composer textarea::placeholder{color:#aaa}.composer-bottom{display:flex;align-items:center;justify-content:space-between}.hint{font-size:12px;color:#a0a0a0}.send{background:#f0f0f0;color:#222;border:0;border-radius:50%;width:34px;height:34px;font-size:20px;display:grid;place-items:center;transition:transform .2s,background .2s}.send:hover{transform:scale(1.08);background:#fff}.send:disabled{opacity:.4;cursor:default;transform:none}.disclaimer{text-align:center;font-size:11px;color:#929292;margin:10px 0 0}@media(max-width:700px){.sidebar{position:absolute;z-index:3;top:0;bottom:0;box-shadow:12px 0 30px #0005}.sidebar.closed{box-shadow:none}.topbar{padding:0 12px}.inner{padding:16px}.welcome h1{font-size:24px}.composer-wrap{padding:8px 12px 12px}.suggestions{grid-template-columns:1fr 1fr}.hint{font-size:11px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <header>✦ Notgre3Nz AI</header>
-  <main>
-    <h1>Jouw persoonlijke AI-assistent</h1>
-    <div id="chat">
-      <div class="message">
-        Hallo! Ik ben Notgre3Nz. Hoe kan ik helpen?
-      </div>
-    </div>
-    <form class="input-area" id="form">
-      <input id="vraag" placeholder="Typ je bericht..." required>
-      <button type="submit">Stuur</button>
-    </form>
-  </main>
-  <script>
-    const chat = document.getElementById("chat");
-    const input = document.getElementById("vraag");
-
-    function bericht(tekst, vanGebruiker = false) {
-      const div = document.createElement("div");
-      div.className = "message" + (vanGebruiker ? " user" : "");
-      div.textContent = tekst;
-      chat.appendChild(div);
-    }
-
-    document.getElementById("form").addEventListener("submit", e => {
-      e.preventDefault();
-      const vraag = input.value.trim();
-      if (!vraag) return;
-      bericht(vraag, true);
-      input.value = "";
-      bericht("De AI-verbinding komt binnenkort! Je schreef: " + vraag);
-    });
-  </script>
-</body>
-</html>
+<div class="app"><aside class="sidebar" id="sidebar"><div class="side-top"><span class="brand">Notgre3Nz</span><button class="icon-btn" id="closeSide" aria-label="Sluit zijbalk">☰</button></div><button class="new-chat" id="newChat">＋ &nbsp; Nieuw gesprek</button><div class="side-label">Recente gesprekken</div><div class="history" id="history"></div><div class="side-foot">Notgre3Nz AI Assistant · Demo</div></aside><section class="main"><header class="topbar"><button class="icon-btn" id="openSide" aria-label="Open of sluit zijbalk">☰</button><strong>Notgre3Nz AI</strong><span class="spacer"></span><button class="icon-btn" id="newTop" title="Nieuw gesprek" aria-label="Nieuw gesprek">✎</button></header><div class="content" id="content"><div class="inner" id="messages"></div></div><div class="composer-wrap"><form class="composer" id="form"><textarea id="input" rows="1" placeholder="Stel een vraag aan Notgre3Nz..." aria-label="Je bericht"></textarea><div class="composer-bottom"><span class="hint">Enter om te verzenden · Shift+Enter voor nieuwe regel</span><button class="send" id="send" type="submit" aria-label="Verstuur bericht">↑</button></div></form><p class="disclaimer">Demo-interface · Nog niet verbonden met een AI-model</p></div></section></div>
+<script>
+(()=>{'use strict';const $=id=>document.getElementById(id);const storageKey='notgre3nz-chats-v1';let chats=[],current=null;try{const saved=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(saved))chats=saved.filter(x=>x&&typeof x.id==='string'&&Array.isArray(x.messages)).slice(0,30)}catch(e){}function save(){try{localStorage.setItem(storageKey,JSON.stringify(chats.slice(0,30)))}catch(e){}}function newChat(){current=null;render();$('input').focus();if(innerWidth<700)$('sidebar').classList.add('closed')}function active(){return chats.find(c=>c.id===current)}function addMessage(role,text){if(!active()){current=String(Date.now())+'-'+Math.random().toString(36).slice(2);chats.unshift({id:current,title:text.slice(0,42),messages:[]})}active().messages.push({role,text});save();render()}function renderHistory(){const h=$('history');h.replaceChildren();chats.forEach(c=>{const b=document.createElement('button');b.className='history-item'+(c.id===current?' active':'');b.textContent=c.title||'Gesprek';b.addEventListener('click',()=>{current=c.id;render();if(innerWidth<700)$('sidebar').classList.add('closed')});h.appendChild(b)})}function render(){renderHistory();const m=$('messages');m.replaceChildren();const c=active();if(!c||!c.messages.length){const w=document.createElement('div');w.className='welcome';const title=document.createElement('h1');title.textContent='Waarmee kan ik je helpen?';const p=document.createElement('p');p.textContent='Begin een gesprek met Notgre3Nz.';const s=document.createElement('div');s.className='suggestions';['Help me schrijven','Leg iets uit','Bedenk ideeën','Help met code'].forEach(t=>{const b=document.createElement('button');b.className='suggestion';b.textContent=t;b.onclick=()=>{$('input').value=t;$('input').focus();resize()};s.appendChild(b)});w.append(title,p,s);m.appendChild(w)}else{c.messages.forEach(msg=>{const el=document.createElement('div');el.className='message '+(msg.role==='user'?'user':'assistant');if(msg.role!=='user'){const who=document.createElement('div');who.className='who';who.textContent='Notgre3Nz';el.appendChild(who)}const t=document.createElement('div');t.textContent=msg.text;el.appendChild(t);m.appendChild(el)});requestAnimationFrame(()=>$('content').scrollTop=$('content').scrollHeight)}}function resize(){const t=$('input');t.style.height='auto';t.style.height=Math.min(t.scrollHeight,150)+'px';$('send').disabled=!t.value.trim()}$('form').addEventListener('submit',e=>{e.preventDefault();const text=$('input').value.trim();if(!text)return;addMessage('user',text);$('input').value='';resize();addMessage('assistant','Dit is de demo van Notgre3Nz AI. De chatinterface werkt al! In een volgende stap koppelen we een echt AI-model, zodat ik je vragen kan beantwoorden.')});$('input').addEventListener('input',resize);$('input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();$('form').requestSubmit()}});$('newChat').onclick=newChat;$('newTop').onclick=newChat;$('closeSide').onclick=()=>$('sidebar').classList.add('closed');$('openSide').onclick=()=>$('sidebar').classList.toggle('closed');if(innerWidth<900)$('sidebar').classList.add('closed');render();resize()})();
+</script>
+</body></html>
