@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notgre3Nz AI Assistant</title>
+  <style>
+    body {
+      background: #080e0b;
+      color: #e5fff0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      padding: 20px;
+      background: #10251a;
+      color: #50fa8b;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    main {
+      max-width: 750px;
+      margin: auto;
+      padding: 24px;
+    }
+    #chat {
+      min-height: 300px;
+      padding: 15px;
+    }
+    .message {
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 14px;
+      background: #193326;
+    }
+    .user {
+      background: #27583b;
+      margin-left: 20%;
+    }
+    .input-area {
+      display: flex;
+      gap: 10px;
+    }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #39704c;
+      background: #122319;
+      color: white;
+    }
+    button {
+      background: #50fa8b;
+      color: #07140c;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>✦ Notgre3Nz AI</header>
+  <main>
+    <h1>Jouw persoonlijke AI-assistent</h1>
+    <div id="chat">
+      <div class="message">
+        Hallo! Ik ben Notgre3Nz. Hoe kan ik helpen?
+      </div>
+    </div>
+    <form class="input-area" id="form">
+      <input id="vraag" placeholder="Typ je bericht..." required>
+      <button type="submit">Stuur</button>
+    </form>
+  </main>
+  <script>
+    const chat = document.getElementById("chat");
+    const input = document.getElementById("vraag");
+
+    function bericht(tekst, vanGebruiker = false) {
+      const div = document.createElement("div");
+      div.className = "message" + (vanGebruiker ? " user" : "");
+      div.textContent = tekst;
+      chat.appendChild(div);
+    }
+
+    document.getElementById("form").addEventListener("submit", e => {
+      e.preventDefault();
+      const vraag = input.value.trim();
+      if (!vraag) return;
+      bericht(vraag, true);
+      input.value = "";
+      bericht("De AI-verbinding komt binnenkort! Je schreef: " + vraag);
+    });
+  </script>
+</body>
+</html>
