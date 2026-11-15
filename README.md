@@ -1,1 +1,2 @@
-# notgre3nz-ai
+#Notgre3Nz ai
+finishing this project soon , stay tuned.
